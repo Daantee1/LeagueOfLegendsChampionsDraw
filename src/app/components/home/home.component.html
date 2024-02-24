@@ -1,0 +1,73 @@
+<div class="text-white">
+    <h3 class="text-center text-4xl font-semibold mt-10">Losowanie Postaci</h3>
+    <h3 class="text-center text-2xl mt-10">Wybierz linie </h3>
+</div>
+<div class="flex justify-center w-full mt-5 box-content">
+    <button (click)="selectTopFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class=" hover:scale-125 transition-transform"
+            src="./assets/top icon.png" alt>
+    </button>
+    <button (click)="selectJgFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class=" hover:scale-125 transition-transform"
+            src="./assets/jg icon.png" alt>
+    </button>
+    <button (click)="selectMidFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class=" hover:scale-125 transition-transform"
+            src="./assets/mid icon.png" alt>
+    </button>
+    <button (click)="selectAdcFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class="hover:scale-125 transition-transform"
+            src="./assets/bot icon.png" alt>
+    </button>
+    <button (click)="selectSupportFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class="hover:scale-125 transition-transform"
+            src="./assets/support icon.png" alt>
+    </button>
+    <button (click)="selectFillFunc()" class="border-2 border-transparent focus:border-yellow-400 mr-4 ">
+        <img width="40px" height="40px"
+            class=" hover:scale-125 transition-transform"
+            src="./assets/fill icon.png" alt>
+    </button>
+
+</div>
+@if(!championDrawn){
+<div class="flex w-full  justify-center mt-32">
+    <button (click)="drawChampion()" (click)="championSelectedFunc()" >
+        <div
+            class="w-52 h-52 flex items-center justify-center bg-gradient-to-t from-yellow-200 to-yellow-500 rounded-full text-2xl hover:scale-105 transition-transform  cursor-pointer"
+            [ngClass]="{'pulseA': draw}">
+            <h3 class="text-3xl font-semibold text-white "
+                [hidden]="draw">LOSUJ</h3>
+            @if(draw){
+            <h3 class="text-3xl font-semibold text-white " >LOSOWANIE...</h3>
+            }
+
+        </div>
+
+    </button>
+
+</div>
+
+}@else{
+
+<h3
+    class="text-white text-4xl font-semibold text-center mt-20">{{championSelected}}</h3>
+<div class="flex justify-center mt-2">
+    <img [src]="championSelectedImg" alt="avatar" >
+</div>
+<div class="flex justify-center mt-10 text-white">
+    <button class="border-2 border-yellow-500 bg-yellow-300 hover:bg-yellow-400 px-3 py-3 rounded-lg">
+        <h3 class="font-semibold text-2xl" (click)="drawAgain()">Wylosuj nową postać</h3>
+    </button>
+</div>
+}
+
+<div class="flex justify-center">
+    <span [hidden]="!noRoleSelected" class=" text-center mt-10 text-red-500">Nie
+        wybrano żadnej roli</span>
+</div>
